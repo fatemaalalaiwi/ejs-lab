@@ -9,12 +9,13 @@
     <%- include('./partials/nav') %>
 
     <h1>Category</h1>
-    // make the first letter capital and the rest small and add them together
-     <h1><%= category.charAt(0).toUpperCase() + category.slice(1) %> Menu</h1>
+     <!-- make the first letter capital and the rest small and add them together -->
+     <!--category & menuItems  from server.js-->
+    <h1><%= category.charAt(0).toUpperCase() + category.slice(1) %> Menu</h1>
 
      
       <% menuItems.forEach(index => { %>
-      <%= index.name %> BD <%= index.price) %>
+      <%= index.name %> BD <%= index.price %>
       <p>Rating: <%= index.rating %>/5</p>
       <p><%= index.details %></p>
     <% }); %>

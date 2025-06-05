@@ -1,4 +1,5 @@
 const express = require('express');
+
 const app = express();
 
 
@@ -58,13 +59,14 @@ app.get('/', (req, res) => {
     name: RESTAURANT.name,
     address: RESTAURANT.address,
     phone: RESTAURANT.phone,
-    isOpen: RESTAURANT.isOpen})
-
+    isOpen: RESTAURANT.isOpen}) 
+    // RESTAURANT:RESTAURANT
 
 });
 
 // Rout
-app.get("/menu",(req,res)=>{
+//Using the locals object, pass the menu array data from server.js to the menu.ejs view.
+app.get("/menu",(req,res,)=>{
     res.render('menu.ejs',{
         menu: RESTAURANT.menu,
     }
@@ -79,10 +81,20 @@ app.get('/menu/:category', (req, res) => {
   //pass array of data
   const menuItems = RESTAURANT.menu.filter(index =>
      index.category === category);
-  res.render('category', { category, menuItems });
+  res.render('category.ejs', {
+     category, menuItems });
 });
 
 
-app.listen(3000, ()=> {
-    console.log(`Server is running on http://localhost:3000`)
+// Rout (fon Main menu)
+// app.get("/menu/mains",(req,res)=>{
+//     res.render('menu.ejs',{
+//        ,
+//     }
+//     )
+
+
+
+app.listen(3001, ()=> {
+    console.log(`Server is running on http://localhost:3001`)
 });
